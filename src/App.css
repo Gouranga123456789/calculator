@@ -56,8 +56,8 @@ h1 {
   background: #bc6ff1;
   border: none;
   border-radius: 5px;
-  font-size: 1rem;
-  padding: 15px;
+  font-size: 1.1rem;
+  padding: 10px;
   cursor: pointer;
   transition: background 0.3s, transform 0.3s;
 }
@@ -67,12 +67,12 @@ h1 {
   transform: scale(1.1);
 }
 
-.history {
+.history {  
   background: #000;
   color: #fff;
   border-radius: 10px;
   box-shadow: 0 0 10px rgba(244, 216, 216, 0.1);
-  margin-left: 20px;
+  margin-left: 100px;
   padding: 20px;
   width: 200px;
 }
@@ -107,4 +107,41 @@ h1 {
 .clear-button:hover {
   background: #892cdc;
   transform: scale(1.1);
+}
+
+
+/* Media queries for mobile web browsers */
+@media (max-width: 768px) {
+  .app{
+    height:100%;
+  }
+  .app h1{
+    margin-top: 40px;
+  }
+  .calculator-container {
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .calculator {
+    width: 100%;
+    padding: 15px;
+  }
+
+  .button {
+    padding: 10px;
+    font-size: 0.8rem;
+  }
+
+  .history {
+    width: 100%;
+    margin-left: 0;
+    margin-top: 20px;
+    margin-bottom: 50px;
+    overflow: hidden;
+  }
+
+  .display {
+    font-size: 1.2rem;
+  }
 }
