@@ -1,38 +1,110 @@
-.App {
-  text-align: center;
+* {
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
 }
 
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
-}
-
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
-  }
-}
-
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
+.app {
   display: flex;
   flex-direction: column;
   align-items: center;
   justify-content: center;
-  font-size: calc(10px + 2vmin);
-  color: white;
+  height: 100vh;
+  background-color: #892cdc;
+  color: #fff;
 }
 
-.App-link {
-  color: #61dafb;
+h1 {
+  margin-bottom: 20px;
 }
 
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
+.calculator-container {
+  display: flex;
+}
+
+.calculator {
+  background: #000;
+  border-radius: 10px;
+  box-shadow: 0 0 10px rgba(244, 216, 216, 0.1);
+  padding: 20px;
+  width: 320px;
+}
+
+.display {
+  background: #eee;
+  color: #000;
+  border-radius: 5px;
+  padding: 10px;
+  font-size: 1.5rem;
+  margin-bottom: 20px;
+  text-align: right;
+}
+
+.input,
+.output {
+  height: 40px;
+  overflow: hidden;
+}
+
+.button-panel {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 10px;
+}
+
+.button {
+  background: #bc6ff1;
+  border: none;
+  border-radius: 5px;
+  font-size: 1rem;
+  padding: 15px;
+  cursor: pointer;
+  transition: background 0.3s, transform 0.3s;
+}
+
+.button:hover {
+  background: #892cdc;
+  transform: scale(1.1);
+}
+
+.history {
+  background: #000;
+  color: #fff;
+  border-radius: 10px;
+  box-shadow: 0 0 10px rgba(244, 216, 216, 0.1);
+  margin-left: 20px;
+  padding: 20px;
+  width: 200px;
+}
+
+.history h2 {
+  margin-bottom: 10px;
+}
+
+.history ul {
+  list-style-type: none;
+  max-height: 200px;
+  overflow-y: auto;
+  padding: 0;
+  margin: 0 0 10px 0;
+}
+
+.history li {
+  margin-bottom: 5px;
+}
+
+.clear-button {
+  background: #bc6ff1;
+  border: none;
+  border-radius: 5px;
+  color: #fff;
+  cursor: pointer;
+  font-size: 1rem;
+  padding: 10px;
+  transition: background 0.3s, transform 0.3s;
+}
+
+.clear-button:hover {
+  background: #892cdc;
+  transform: scale(1.1);
 }
