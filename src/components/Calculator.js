@@ -9,11 +9,9 @@ const Calculator = () => {
   const [history, setHistory] = useState([]);
 
   const calculateResult = (input) => {
-    // Replace -- with + and ++ with + to handle cases like 5--2 and 5++2
     const sanitizedInput = input.replace(/--/g, '+').replace(/\+\+/g, '+');
 
     try {
-      // eslint-disable-next-line no-new-func
       const result = new Function(`return (${sanitizedInput})`)();
       return result;
     } catch {
@@ -29,6 +27,24 @@ const Calculator = () => {
     } else if (value === 'C') {
       setInput('');
       setOutput('');
+    } else if (value === 'AC') {
+      setInput(input.slice(0, -1));
+    } else if (value === '√') {
+      const result = Math.sqrt(parseFloat(input));
+      setOutput(result);
+      setHistory([...history, `√${input} = ${result}`]);
+    } else if (value === 'x²') {
+      const result = Math.pow(parseFloat(input), 2);
+      setOutput(result);
+      setHistory([...history, `${input}² = ${result}`]);
+    } else if (value === 'x³') {
+      const result = Math.pow(parseFloat(input), 3);
+      setOutput(result);
+      setHistory([...history, `${input}³ = ${result}`]);
+    } else if (value === '∛') {
+      const result = Math.cbrt(parseFloat(input));
+      setOutput(result);
+      setHistory([...history, `∛${input} = ${result}`]);
     } else {
       setInput((prev) => prev + value);
     }
@@ -55,7 +71,12 @@ const Calculator = () => {
           {['0', '.', '=', '+'].map((btn) => (
             <Button key={btn} value={btn} onClick={handleButtonClick} />
           ))}
+          <Button value="√" onClick={handleButtonClick} />
+          <Button value="x²" onClick={handleButtonClick} />
+          <Button value="x³" onClick={handleButtonClick} />
+          <Button value="∛" onClick={handleButtonClick} />
           <Button value="C" onClick={handleButtonClick} />
+          <Button value="AC" onClick={handleButtonClick} />
         </div>
       </div>
       <History history={history} onClear={handleClearHistory} />
